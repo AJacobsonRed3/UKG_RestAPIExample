@@ -1,0 +1,73 @@
+{
+	"info": {
+		"_postman_id": "18c1a331-540d-4cc8-8c78-51741aa58572",
+		"name": "UKG Pro Rest APIs Example - Red Three",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25251714"
+	},
+	"item": [
+		{
+			"name": "Employee ID Lookup",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{Password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{UserName}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "US-Customer-Api-Key",
+						"value": "{{USCustomerAPIKey}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n  {\r\n    \"employeeIdentifierType\": \"EmailAddress\",\r\n    \"employeeIdentifierValue\": \"adam@redthree.com\",\r\n    \"companyIdentifierType\": \"CompanyID\",\r\n    \"companyIdentifierValue\": \"ABC12\"\r\n  }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{HOSTNAME}}/personnel/v1/employee-ids",
+					"protocol": "https",
+					"host": [
+						"{{HOSTNAME}}"
+					],
+					"path": [
+						"personnel",
+						"v1",
+						"employee-ids"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
